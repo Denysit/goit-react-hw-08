@@ -1,11 +1,10 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import AppBar from "./components/AppBar/AppBar";
-
-
-
+import { useDispatch } from 'react-redux';
+import { refreshUser } from './redux/auth/operations';
 
 const HomePage = lazy(() => import('./pages/Home'));
 const RegisterPage = lazy(() => import('./pages/Registration'));
@@ -15,7 +14,11 @@ const ContactsPage = lazy(() => import('./pages/Contacts'));
 
 function App() {
 
-  
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+   dispatch(refreshUser())
+  },[dispatch])
   
   return (
     <Suspense fallback={<p>Loading Page...</p>}>
