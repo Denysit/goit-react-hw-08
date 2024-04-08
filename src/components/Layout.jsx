@@ -1,6 +1,7 @@
 import AppBar from "./AppBar/AppBar"
 
 
+
 export const Layout = ({ children }) => {
     return (
         <div>
@@ -9,3 +10,7 @@ export const Layout = ({ children }) => {
         </div>
     );
 }
+
+
+
+

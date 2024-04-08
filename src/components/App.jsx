@@ -11,10 +11,10 @@ import { Layout } from './Layout';
 import { PrivateRoute } from './PrivateRoute';
 import { Toaster } from 'react-hot-toast';
 
-const HomePage = lazy(() => import('../pages/Home/Home'));
-const RegisterPage = lazy(() => import('../pages/Registration/Registration'));
-const LoginPage = lazy(() => import('../pages/Login/Login'));
-const ContactsPage = lazy(() => import('../pages/Contact/Contacts'));
+const HomePage = lazy(() => import('../pages/Home'));
+const RegisterPage = lazy(() => import('../pages/Registration'));
+const LoginPage = lazy(() => import('../pages/Login'));
+const ContactsPage = lazy(() => import('../pages/Contacts'));
 
 
 function App() {
@@ -37,9 +37,9 @@ function App() {
           <Suspense fallback={<p>Loading Page...</p>}>
             <Routes>
               <Route path='/' element={<HomePage />} />
-              <Route path='/register' element={<RestrictedRoute component={<RegisterPage />} />} />
-              <Route path='/login' element={<RestrictedRoute component={<LoginPage />} />} />
-              <Route path='/contacts' element={<PrivateRoute component={<ContactsPage />} />} />
+              <Route path='/register' element={<RestrictedRoute redirectTo="/contacts" component={RegisterPage} />} />
+              <Route path='/login' element={<RestrictedRoute redirectTo="/contacts" component={LoginPage} />} />
+              <Route path='/contacts' element={<PrivateRoute  redirectTo="/register" component={ContactsPage} />} />
               <Route
                 path='*'
                 element={
@@ -57,3 +57,7 @@ function App() {
   );
 }
 export default App
+
+
+
+
