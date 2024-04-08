@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchContacts } from '../redux/contacts/operations'
 import { selectError, selectLoader } from '../redux/contacts/selectors'
-import PageTitle from "../components/PageTitle"
+import { BiSolidContact } from "react-icons/bi";
 
 
 export default function Contacts() {
@@ -20,10 +20,15 @@ export default function Contacts() {
 
   }, [dispatch]);
 
+   const logoStyle = {
+    fontSize: '60px',
+    color: '#0734ff',
+    marginBottom: '20px',
+  };
+
     return (
       <div className='container'>
-        <PageTitle>Contacts</PageTitle>
-      <h1 className='title'>Phonebook</h1>
+        <BiSolidContact style={logoStyle}/>
       <ContactForm/>
       <SearchBox />
       {loading && <p>Loading...</p>}
