@@ -1,5 +1,5 @@
 
-import LoginForm from "../components/LoginForm/LoginForm";
+import LoginForm from "../../components/LoginForm/LoginForm";
 import { Link } from "react-router-dom";
 import css from './Login.module.css';
 

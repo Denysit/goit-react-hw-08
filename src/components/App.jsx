@@ -11,10 +11,10 @@ import { Layout } from './Layout';
 import { PrivateRoute } from './PrivateRoute';
 import { Toaster } from 'react-hot-toast';
 
-const HomePage = lazy(() => import('../pages/Home'));
-const RegisterPage = lazy(() => import('../pages/Registration'));
-const LoginPage = lazy(() => import('../pages/Login'));
-const ContactsPage = lazy(() => import('../pages/Contacts'));
+const HomePage = lazy(() => import('../pages/Home/Home'));
+const RegisterPage = lazy(() => import('../pages/Registration/Registration'));
+const LoginPage = lazy(() => import('../pages/Login/Login'));
+const ContactsPage = lazy(() => import('../pages/Contact/Contacts'));
 
 
 function App() {
